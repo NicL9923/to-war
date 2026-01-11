@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://br4fum3enwuva"]
+
+[ext_resource type="PackedScene" uid="uid://b1m1fpquortc8" path="res://CharacterScene.tscn" id="1_ig7tw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
+albedo_color = Color(0.27058825, 0.49803922, 0, 1)
+
+[node name="MainScene3D" type="Node3D"]
+
+[node name="Terrain" type="CSGBox3D" parent="."]
+size = Vector3(200, 1, 200)
+material = SubResource("StandardMaterial3D_7dm0k")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8959938, 0)
