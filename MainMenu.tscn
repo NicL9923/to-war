@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://p0asbwc06j6o"]
+
+[ext_resource type="AudioStream" uid="uid://daxp7uicbs5wk" path="res://assets/music/Suno-PressureFront.mp3" id="1_h7a2f"]
+[ext_resource type="Texture2D" uid="uid://benxs7tiu8jmc" path="res://assets/NanoBananaPro-ToWarTitleTextImage.jpg" id="2_iwfq2"]
+[ext_resource type="Script" uid="uid://dsr33tn0dai06" path="res://scripts/PlayButton.cs" id="2_qoqlk"]
+[ext_resource type="Script" uid="uid://320ytro4wepq" path="res://scripts/SettingsButton.cs" id="3_iwfq2"]
+[ext_resource type="Script" uid="uid://cku8jth75b2l7" path="res://scripts/ExitButton.cs" id="4_qoqlk"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 658.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_h7a2f")
+autoplay = true
+
+[node name="TitleTextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 99.0
+offset_right = 820.0
+offset_bottom = 332.0
+texture = ExtResource("2_iwfq2")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 330.0
+offset_right = 715.0
+offset_bottom = 550.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ToWarButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "To War"
+script = ExtResource("2_qoqlk")
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+script = ExtResource("3_iwfq2")
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+script = ExtResource("4_qoqlk")
+
+[connection signal="pressed" from="VBoxContainer/ToWarButton" to="VBoxContainer/ToWarButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="VBoxContainer/ToWarButton" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ToWarButton" method="_on_exit_button_pressed"]

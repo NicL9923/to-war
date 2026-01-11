@@ -29,6 +29,6 @@ use_collision = true
 size = Vector3(3.5, 3.5, 3.5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.599411, 20.527565, 6.137043)
+transform = Transform3D(0.9184947, 0.39543328, 0, -0.23346159, 0.5422741, 0.8071149, 0.3191601, -0.74133074, 0.5903944, -31.599411, 20.527565, 6.137043)
 light_volumetric_fog_energy = 0.0
 shadow_enabled = true
