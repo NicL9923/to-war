@@ -12,7 +12,7 @@ public partial class SettingsButton : Button
 	{
 	}
 	
-	public void _on_settings_button_pressed()
+	public void _on_pressed()
 	{
 		GD.Print("Settings clicked");
 	}

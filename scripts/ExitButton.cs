@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class ExitButton : Button
 {
@@ -13,7 +12,7 @@ public partial class ExitButton : Button
 	{
 	}
 	
-	public void _on_exit_button_pressed()
+	public void _on_pressed()
 	{
 		GetTree().Quit();
 	}

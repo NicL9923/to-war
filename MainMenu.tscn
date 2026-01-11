@@ -58,5 +58,5 @@ text = "Exit"
 script = ExtResource("4_qoqlk")
 
 [connection signal="pressed" from="VBoxContainer/ToWarButton" to="VBoxContainer/ToWarButton" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/SettingsButton" to="VBoxContainer/ToWarButton" method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ToWarButton" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="VBoxContainer/SettingsButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ExitButton" method="_on_pressed"]

@@ -15,6 +15,12 @@ public partial class PlayerController : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionJustPressed("ui_cancel"))
+		{
+			Input.MouseMode = Input.MouseModeEnum.Visible;
+			var scene = GD.Load<PackedScene>("res://MainMenu.tscn");
+			GetTree().ChangeSceneToPacked(scene);
+		}
 	}
 
 	public override void _PhysicsProcess(double delta)
