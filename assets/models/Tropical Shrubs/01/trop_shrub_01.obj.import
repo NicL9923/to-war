@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b452bwaje236m"
+path="res://.godot/imported/trop_shrub_01.obj-9688e01a8414c8902ea378055a00ef94.mesh"
+
+[deps]
+
+files=["res://.godot/imported/trop_shrub_01.obj-9688e01a8414c8902ea378055a00ef94.mesh"]
+
+source_file="res://assets/models/Tropical Shrubs/01/trop_shrub_01.obj"
+dest_files=["res://.godot/imported/trop_shrub_01.obj-9688e01a8414c8902ea378055a00ef94.mesh", "res://.godot/imported/trop_shrub_01.obj-9688e01a8414c8902ea378055a00ef94.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
