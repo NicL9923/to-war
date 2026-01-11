@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1m1fpquortc8"]
+[gd_scene load_steps=5 format=3 uid="uid://b1m1fpquortc8"]
+
+[ext_resource type="Script" uid="uid://dwerqlrg6c4jj" path="res://scripts/PlayerController.cs" id="1_f6yen"]
+[ext_resource type="Script" uid="uid://d4leb5ctgnmsf" path="res://scripts/CharacterMovement.cs" id="1_pcfqm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ig7tw"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0xm2m"]
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_pcfqm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ig7tw")
@@ -14,7 +18,11 @@ shape = SubResource("CapsuleShape3D_ig7tw")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_0xm2m")
 
-[node name="ScriptsNode" type="Node" parent="."]
+[node name="ScriptsNode" type="Node" parent="." node_paths=PackedStringArray("TwistPivot", "PitchPivot", "_characterMovement")]
+script = ExtResource("1_f6yen")
+TwistPivot = NodePath("../TwistPivot")
+PitchPivot = NodePath("../TwistPivot/PitchPivot")
+_characterMovement = NodePath("..")
 
 [node name="TwistPivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6731261, -0.44443104)

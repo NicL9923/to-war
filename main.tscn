@@ -1,15 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://br4fum3enwuva"]
+[gd_scene load_steps=2 format=3 uid="uid://br4fum3enwuva"]
 
 [ext_resource type="PackedScene" uid="uid://b1m1fpquortc8" path="res://CharacterScene.tscn" id="1_ig7tw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
-albedo_color = Color(0.27058825, 0.49803922, 0, 1)
 
 [node name="MainScene3D" type="Node3D"]
 
 [node name="Terrain" type="CSGBox3D" parent="."]
+use_collision = true
 size = Vector3(200, 1, 200)
-material = SubResource("StandardMaterial3D_7dm0k")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8959938, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5192823, 0)
+safe_margin = 0.05
+JumpVelocity = 6.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.691393, 3.4064512, -3.875494)
+use_collision = true
+size = Vector3(5, 5, 5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19548, 1.8303535, -3.1262465)
+use_collision = true
+size = Vector3(2, 2, 2)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.332611, 1.8303535, -7.3358426)
+use_collision = true
+size = Vector3(3.5, 3.5, 3.5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.599411, 20.527565, 6.137043)
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
