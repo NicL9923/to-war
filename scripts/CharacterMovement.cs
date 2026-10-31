@@ -21,7 +21,6 @@ public partial class CharacterMovement : CharacterBody3D
 	{
 		Vector3 velocity = Velocity;
 
-		// Handle falling
 		if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta;
@@ -32,14 +31,12 @@ public partial class CharacterMovement : CharacterBody3D
 			}
 		}
 
-		// Handle jumping
 		if (_wantsToJump && IsOnFloor())
 		{
 			velocity.Y = JumpVelocity;
 		}
 		_wantsToJump = false;
 
-		// Handle horizontal movement
 		float decayRate = _currentInput.Length() > 0 ? Acceleration : Friction;
 		float accelerationForTimeChunk = 1.0f - Mathf.Exp(-decayRate * (float)delta);
 		Vector3 direction = (Transform.Basis * new Vector3(_currentInput.X, 0, _currentInput.Y)).Normalized();
