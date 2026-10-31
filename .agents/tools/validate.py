@@ -11,10 +11,10 @@ os.chdir(root)
 godot = Path(os.environ['GODOT']).resolve(strict=True)
 blender = Path(os.environ['BLENDER']).resolve(strict=True)
 
-def run(args, timeout=600, errors=False):
+def run(args, timeout=600, errors=False, env=None):
     print('+', ' '.join(map(str, args)), flush=True)
     try:
-        result = subprocess.run(args, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout)
+        result = subprocess.run(args, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout, env=env)
     except subprocess.TimeoutExpired as e:
         print(e.stdout.decode(errors='replace') if isinstance(e.stdout, bytes) else e.stdout, flush=True)
         raise SystemExit('Command timed out')
@@ -51,7 +51,8 @@ for name in subprocess.check_output(['git', 'ls-files', '-z', '*.import']).decod
         output = root / dest
         if not output.is_file() or output.stat().st_size == 0:
             raise SystemExit(f'Missing or empty import output: {dest} ({name})')
-run([str(godot), '--headless', '--path', '.', '--quit-after', '120'], 180, True)
+run([str(godot), '--headless', '--path', '.', '--script', 'res://.agents/tools/menu_smoke.gd'], 180, True, {**os.environ, 'MENU_QUIT': 'button'})
+run([str(godot), '--headless', '--path', '.', '--script', 'res://.agents/tools/menu_smoke.gd'], 180, True, {**os.environ, 'MENU_QUIT': 'window'})
 run([str(godot), '--headless', '--path', '.', 'res://main.tscn', '--quit-after', '120'], 180, True)
 if os.environ.get('ALLOW_IMPORT_CHANGES') != '1':
     run(['git', 'diff', '--exit-code', '--', '*.import'])
